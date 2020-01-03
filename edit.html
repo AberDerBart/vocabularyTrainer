@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<a href="index.html">Learn</a>
+	<div id="app">
+		<button v-on:click="store()">Save</button>
+		<input type="file" v-on:change="load"/>
+		<table>
+			<tr>
+				<th>English</th>
+				<th>Toki Pona</th>
+				<th>Gesture</th>
+				<th>Glyph</th>
+			</tr>
+			<tr v-for="word in vocabulary">
+				<td><input v-model="word.en"/></td>
+				<td><input v-model="word.tp"/></td>
+				<td><input v-model="word.gesture"/></td>
+				<td><input v-model="word.glyph"/></td>
+				<td><button v-on:click="del(word)"/>Delete</td>
+			</tr>
+		</table>
+		<button v-on:click="add()">Add</button>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>

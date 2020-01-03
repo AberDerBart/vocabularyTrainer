@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<a href="edit.html">edit</a>
+<div id="app">
+	<div id="langSelect">
+		<select v-model="languagePrim">
+			<option v-for="language in languages" v-bind:value="language.key">
+				{{ language.name }}
+			</option>
+		</select>
+		<select v-model="languageSec">
+			<option v-for="language in languages" v-bind:value="language.key">
+				{{ language.name }}
+			</option>
+		<select>
+	</div>
+	<div id="vocabulary">
+		<span class="vocDisplay">{{ current[languagePrim] }}</span>
+		<span class="vocDisplay"><span v-if="revealed">{{ current[languageSec] }}</span></span>
+	</div>
+	<div id="amswerButtons">
+		<button type="button" v-on:click="next()">Next</button>
+		<button type="button" v-on:click="reveal()">Reveal</button>
+	</div>
+
+	<script src="app.js"></script>
+</div>
+</body>
+</html>
